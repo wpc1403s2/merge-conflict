@@ -1,1 +1,96 @@
-1111
+import {$} from "./utils";
+const render = Symbol("render");
+const event = Symbol("event");
+const style=`<style>
+    .vs-wrapper {
+        width: 100%;
+        position: relative;
+        height: 100%;
+    }
+
+    .vs-moved-bg {
+        background: green;
+        width: 0;
+        position: absolute;
+        z-index: 999;
+        height: 100%;
+    }
+
+    .vs-unmoved-bg {
+        background: gray;
+        width: 100%;
+        position:absolute
+        z-index: 998;
+        height: 100%;
+    }
+
+    .vs-text {
+        position: absolute;
+        width: 100%;
+        top: 0;
+        z-index: 1000;
+        backgound: rgba(0,0,0,0);
+        text-align: center;
+    }
+
+    .vs-move-btn {
+        height: 100%;
+        width: 30px;
+        background: #333333;
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: 1001;
+</style>`
+
+//活人验证
+class Slider{
+    constructor(opts){
+        this.opts = opts;
+        if(!opts.container)
+            throw "请填写container配置";
+        this[render](opts);
+        this[event](opts);
+    }
+    [render](opts){
+        const unsuccessTip = opts.unsuccessTip || "请按住滑块，拖动到最右边";
+        const tpl=style+`
+            <span id="vs-moved-btn"></span>
+            <div id="vs-unmoved-bg"></div>
+            <span id="vs-text" class="vs-text">
+            <div id="vs-wrapper" class="vs-wrapper">
+            <div id="vs-moved-bg"></div>
+            ${unsuccessTip}
+</span>
+            
+</div>
+        `
+        opts.container.innerHTML = tpl;
+
+    }
+    [event](opts){
+        //按钮
+        const $btn = $("vs-move-btn");
+        //滑动距离
+        const $moved = $("vs-moved-bg");
+        const $wrapper = $("vs-wrapper");
+        //提示
+        const $text = $("vs-text");
+
+        $btn.onmousedown=()=>{
+
+        }
+
+        $btn.onmousemove=()=>{
+
+        }
+
+        $btn.onmouseup=()=>{
+
+        }
+
+    }
+
+
+
+}
