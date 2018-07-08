@@ -9,18 +9,18 @@ const style=`<style>
     }
 
     .vs-moved-bg {
-        background: green;
-        width: 0;
         position: absolute;
         z-index: 999;
+        background: lll;
+        width: 0;
         height: 100%;
     }
 
     .vs-unmoved-bg {
-        background: gray;
-        width: 100%;
         position:absolute
         z-index: 998;
+        background: gray;
+        width: 100%;
         height: 100%;
     }
 
@@ -28,8 +28,8 @@ const style=`<style>
         position: absolute;
         width: 100%;
         top: 0;
-        z-index: 1000;
-        backgound: rgba(0,0,0,0);
+        z-index: 10;
+        backgound: rgba(255,0,0,0);
         text-align: center;
     }
 
@@ -43,17 +43,17 @@ const style=`<style>
         z-index: 1001;
 </style>`
 
-//»îÈËÑéÖ¤
+//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ö¤
 class Slider{
     constructor(opts){
         this.opts = opts;
         if(!opts.container)
-            throw "ÇëÌîÐ´containerÅäÖÃ";
+            throw "ï¿½ï¿½ï¿½ï¿½Ð´containerï¿½ï¿½ï¿½ï¿½";
         this[render](opts);
         this[event](opts);
     }
     [render](opts){
-        const unsuccessTip = opts.unsuccessTip || "Çë°´×¡»¬¿é£¬ÍÏ¶¯µ½×îÓÒ±ß";
+        const unsuccessTip = opts.unsuccessTip || "ï¿½ë°´×¡ï¿½ï¿½ï¿½é£¬ï¿½Ï¶ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ò±ï¿½";
         const tpl=style+`
             <span id="vs-moved-btn"></span>
             <div id="vs-unmoved-bg"></div>
@@ -69,12 +69,12 @@ class Slider{
 
     }
     [event](opts){
-        //°´Å¥
+        //ï¿½ï¿½Å¥
         const $btn = $("vs-move-btn");
-        //»¬¶¯¾àÀë
+        //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
         const $moved = $("vs-moved-bg");
         const $wrapper = $("vs-wrapper");
-        //ÌáÊ¾
+        //ï¿½ï¿½Ê¾
         const $text = $("vs-text");
 
         $btn.onmousedown=()=>{
